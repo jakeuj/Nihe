@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f9f5ee">
+    <meta name="robots" content="noindex, follow">
+    <title>Nihe｜客製化臉部養護</title>
+    <meta name="description" content="依照當日膚況與你的需求，挑選 Nihe 的臉部護理、保濕與舒壓加購。">
+    <link rel="canonical" href="https://jakeuj.com/jake-shop/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:title" content="Nihe｜客製化臉部養護">
+    <meta property="og:description" content="懂你的需求。看看 Nihe 的臉部養護與加購搭配。">
+    <meta property="og:url" content="https://jakeuj.com/jake-shop/">
+    <meta property="og:image" content="https://jakeuj.com/jake-shop/media/nihe-social.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Nihe 客製化臉部養護的品牌分享封面">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="/media/icon.png" type="image/png">
+    <script type="module" src="/src/home.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要內容</a>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="wordmark" href="%BASE_URL%" aria-label="Nihe 首頁">Nihe<span>.</span></a>
+        <nav aria-label="主要導覽">
+          <a href="#treatments">護理與加購</a>
+          <a href="#stored-value">儲值洽詢</a>
+          <a class="nav-share" href="#share">分享店卡</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <p class="hero-tagline">懂你的需求</p>
+          <h1 id="hero-title">客製化<span>臉部養護</span></h1>
+          <p class="hero-text">給肌膚一點溫柔的時間。<br>依照當日膚況與需求，搭配適合你的清潔、保濕與舒壓養護。</p>
+          <a class="button primary" href="#treatments">挑選護理</a>
+          <p class="demo-note">展示版 · 預約方式將於正式開放後公布</p>
+        </div>
+        <figure class="hero-photo">
+          <img src="/media/facial-care.webp" alt="暖金陽光下，閉上眼睛接受臉部養護的女性" fetchpriority="high" width="1448" height="1086">
+          <figcaption>養護情境示意</figcaption>
+        </figure>
+      </section>
+
+      <section class="menu-section" id="treatments" aria-labelledby="menu-title">
+        <div class="wrap">
+          <div class="section-heading">
+            <h2 id="menu-title">找到適合今天的養護</h2>
+            <p>選一款主護理，再依需要搭配加購。</p>
+          </div>
+          <noscript><p>請啟用 JavaScript 查看護理價目與使用搭配工具。</p></noscript>
+          <div data-enhanced hidden>
+            <form id="care-picker" aria-label="搭配護理">
+              <fieldset class="menu-fieldset">
+                <legend class="sr-only">主護理</legend>
+                <div id="treatment-options" class="treatment-grid"></div>
+              </fieldset>
+              <div class="pairing">
+                <fieldset class="menu-fieldset">
+                  <legend>加值養護</legend>
+                  <div id="extra-options" class="extra-grid"></div>
+                </fieldset>
+                <section class="summary-panel" aria-labelledby="summary-title">
+                  <h3 id="summary-title">我的護理搭配</h3>
+                  <p id="selection-empty">選一款主護理即可試算。</p>
+                  <ul class="line-items" id="selection-lines" hidden></ul>
+                  <div class="total"><span>搭配金額</span><strong id="selection-total" aria-live="polite">—</strong></div>
+                  <button id="copy-selection" class="button primary" type="button" disabled>複製搭配摘要</button>
+                  <p id="selection-status" class="status" aria-live="polite"></p>
+                </section>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="stored-section wrap" id="stored-value" aria-labelledby="stored-title">
+        <figure class="stored-photo">
+          <img src="/media/spa-linen.webp" alt="陶瓷水碗、柔軟毛巾與金色枝葉" width="1200" height="800" loading="lazy">
+        </figure>
+        <div class="stored-content">
+          <h2 id="stored-title">儲值方案洽詢</h2>
+          <p class="section-lede">把肌膚養護排進日常，依照你的保養頻率了解合適的方案。</p>
+          <p class="line-note">洽詢方式將於正式開放後公布。</p>
+        </div>
+      </section>
+
+      <section class="share-section" id="share" aria-labelledby="share-title">
+        <div class="wrap share-inner">
+          <div>
+            <h2 id="share-title">把 Nihe 分享給朋友</h2>
+            <p class="section-lede">用手機掃描 QR Code，即可查看護理與價目。</p>
+            <div class="button-row">
+              <button class="button primary" id="share-home" type="button" hidden>分享店卡</button>
+              <a class="button outline" href="%BASE_URL%media/nihe-qr.png" download="Nihe-店卡-QR.png">下載 QR Code</a>
+            </div>
+            <p class="status" id="share-status" aria-live="polite"></p>
+          </div>
+          <a class="shop-qr" href="https://jakeuj.com/jake-shop/" aria-label="開啟 Nihe 顧客頁">
+            <img src="/media/nihe-qr.png" alt="Nihe 顧客頁的 QR Code" width="176" height="176" loading="lazy">
+          </a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <a class="wordmark small" href="%BASE_URL%" aria-label="Nihe 首頁">Nihe<span>.</span></a>
+        <p>客製化臉部養護</p>
+        <a class="footer-link" href="%BASE_URL%studio/">店主工具</a>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f9f5ee">
+    <meta name="robots" content="noindex, follow">
+    <title>分享卡｜Nihe</title>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nihe｜客製化臉部養護">
+    <meta property="og:description" content="開啟 Nihe 的護理推薦或活動卡。">
+    <meta property="og:image" content="https://jakeuj.com/jake-shop/media/nihe-social.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="/media/icon.png" type="image/png">
+    <script type="module" src="/src/shared-card.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="wordmark" href="%BASE_URL%" aria-label="Nihe 首頁">Nihe<span>.</span></a>
+        <nav aria-label="主要導覽"><a href="%BASE_URL%#treatments">瀏覽完整護理</a></nav>
+      </div>
+    </header>
+    <main class="public-card-shell">
+      <article class="card-surface" id="shared-card">
+        <h1>Nihe 分享卡</h1>
+        <p class="section-lede">請開啟完整的卡片連結。若卡片未顯示，可回首頁查看護理。</p>
+      </article>
+      <div class="public-card-actions button-row">
+        <a class="button primary" href="%BASE_URL%#treatments">回首頁看護理</a>
+        <button class="button outline" type="button" id="share-card" hidden>分享這張卡</button>
+      </div>
+      <p id="share-status" class="status" role="status"></p>
+    </main>
+  </body>
+</html>

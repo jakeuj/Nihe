@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f9f5ee">
+    <meta name="robots" content="noindex, nofollow">
+    <title>店主工具｜Nihe</title>
+    <link rel="icon" href="/media/icon.png" type="image/png">
+    <script type="module" src="/src/studio.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要內容</a>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="wordmark" href="%BASE_URL%" aria-label="Nihe 首頁">Nihe<span>.</span></a>
+        <nav aria-label="主要導覽"><a href="%BASE_URL%">查看顧客頁</a></nav>
+      </div>
+    </header>
+
+    <main class="wrap workbench" id="main">
+      <div class="workbench-heading">
+        <h1>店主工具</h1>
+        <p class="section-lede">做一張護理推薦卡或活動卡，貼到 LINE 訊息或讓客人直接掃描。</p>
+        <p class="line-note" id="draft-status">草稿儲存在此瀏覽器。請填寫可公開的內容。</p>
+      </div>
+      <noscript><p>請啟用 JavaScript 使用卡片編輯與分享功能。</p></noscript>
+      <div data-enhanced hidden>
+        <div class="mode-switch" role="group" aria-label="卡片類型">
+          <button type="button" class="button outline" data-mode="care" aria-pressed="true" aria-controls="care-form">護理推薦卡</button>
+          <button type="button" class="button outline" data-mode="promo" aria-pressed="false" aria-controls="promo-form">活動卡</button>
+        </div>
+        <div class="workbench-grid">
+          <div>
+            <form id="care-form" class="editor-panel">
+              <h2>搭配護理</h2>
+              <label for="care-treatment">主護理</label>
+              <div class="editor-fields">
+                <select id="care-treatment" name="treatment" required></select>
+                <div>
+                  <label for="treatment-price">主護理價格（NT$）</label>
+                  <input id="treatment-price" name="price" type="number" min="0" max="99999" step="1" inputmode="numeric" required>
+                </div>
+              </div>
+              <fieldset class="editor-addons">
+                <legend>加購</legend>
+                <div id="editor-extras"></div>
+              </fieldset>
+              <label for="care-note">推薦語 <span class="label-note">選填</span></label>
+              <textarea id="care-note" name="note" maxlength="100" rows="3" placeholder="例如：想兼顧保濕和頭部舒壓，可以試試這個搭配。"></textarea>
+              <button class="button primary" type="submit">產生分享卡</button>
+            </form>
+
+            <form id="promo-form" class="editor-panel" hidden>
+              <h2>編輯活動</h2>
+              <label for="promo-title">活動名稱</label>
+              <input id="promo-title" name="title" type="text" maxlength="24" required placeholder="例如：秋日保濕養護">
+              <label for="promo-details">活動說明</label>
+              <textarea id="promo-details" name="details" maxlength="100" rows="4" required placeholder="可寫適用服務、使用條件或參加方式。"></textarea>
+              <div class="editor-fields">
+                <div>
+                  <label for="promo-price">優惠金額（NT$） <span class="label-note">選填</span></label>
+                  <input id="promo-price" name="price" type="number" min="0" max="99999" step="1" inputmode="numeric">
+                </div>
+                <div>
+                  <label for="promo-until">活動截止日</label>
+                  <input id="promo-until" name="until" type="date" required>
+                </div>
+              </div>
+              <button class="button primary" type="submit">產生分享卡</button>
+            </form>
+
+            <details class="reference-panel">
+              <summary>對照 DM 儲值金額</summary>
+              <table>
+                <thead><tr><th scope="col">儲值金額</th><th scope="col">贈送額</th></tr></thead>
+                <tbody id="stored-value-reference"></tbody>
+              </table>
+              <p class="line-note">期限與續約條件待店主確認。</p>
+            </details>
+          </div>
+
+          <div class="preview-column">
+            <h2 class="preview-label">顧客看到的卡片</h2>
+            <div id="live-preview" class="card-surface"></div>
+            <p id="editor-status" class="status" role="status"></p>
+            <section class="share-results" id="share-results" aria-labelledby="share-results-title" hidden>
+              <h2 id="share-results-title">分享這張卡</h2>
+              <div class="button-row">
+                <button type="button" class="button primary" id="copy-card-link">複製連結</button>
+                <button type="button" class="button outline" id="copy-card-message">複製分享文案</button>
+                <a class="button outline" id="open-card" target="_blank" rel="noopener">開啟顧客版</a>
+              </div>
+              <div class="card-qr-row">
+                <canvas id="card-qr" aria-label="這張分享卡的 QR Code" role="img"></canvas>
+                <button type="button" class="button outline" id="download-card-qr">下載 QR Code</button>
+              </div>
+              <p id="card-share-status" class="status" role="status"></p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
