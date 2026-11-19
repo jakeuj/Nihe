@@ -1,4 +1,4 @@
-export const homeUrl = 'https://jakeuj.com/jake-shop/';
+export const homeUrl = 'https://jakeuj.com/Nihe/';
 
 export const treatments = [
   {

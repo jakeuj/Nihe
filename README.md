@@ -1,12 +1,12 @@
 # Nihe｜客製化臉部養護
 
-- [顧客頁](https://jakeuj.com/jake-shop/)可查看護理價目、試算搭配及下載店卡 QR Code。
-- [店主工具](https://jakeuj.com/jake-shop/studio/)可建立護理推薦卡與活動卡，在此瀏覽器保存草稿，並分享顧客可直接開啟的連結與 QR Code。
+- [顧客頁](https://jakeuj.com/Nihe/)可查看護理價目、試算搭配及下載店卡 QR Code。
+- [店主工具](https://jakeuj.com/Nihe/studio/)可建立護理推薦卡與活動卡，在此瀏覽器保存草稿，並分享顧客可直接開啟的連結與 QR Code。
 - 分享卡會保留當時的價格與文字。網址包含卡片內容，請填寫可公開分享的資料。要修改卡片，請重新產生並分享新的連結。
 
 ## 開發與維護
 
-使用 Node.js 24，先執行 `npm ci`，再執行 `npm run dev`，開啟終端機顯示的 `/jake-shop/` 網址。使用 `npm test` 驗證卡片格式與截止日，使用 `npm run build` 產生 `dist/`。推送至 `main` 後，GitHub Actions 會建置並發布 GitHub Pages。
+使用 Node.js 24，先執行 `npm ci`，再執行 `npm run dev`，開啟終端機顯示的 `/Nihe/` 網址。使用 `npm test` 驗證卡片格式與截止日，使用 `npm run build` 產生 `dist/`。推送至 `main` 後，GitHub Actions 會建置並發布 GitHub Pages。
 
 主護理、加購及店主端的 DM 儲值金額集中於 [src/catalog.js](src/catalog.js)。展示版預約與儲值洽詢文案位於 [index.html](index.html)。正式上線時可更新這兩處，並重新檢視頁面的搜尋引擎索引設定。
 

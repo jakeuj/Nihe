@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import { createCardLink, decodeCard, isExpired, maxShareUrlBytes, shareMessage } from '../src/cards.js';
 import { extras, sumPrices, treatments } from '../src/catalog.js';
 
-const destination = 'https://jakeuj.com/jake-shop/card/';
+const destination = 'https://jakeuj.com/Nihe/card/';
 const care = {
   v: 1,
   type: 'care',
@@ -62,5 +62,7 @@ test('all current add-ons fit in one QR and the link refuses excessive text', ()
   assert.equal(sumPrices(items), 3500);
   const fullCard = { ...care, items };
   assert.deepEqual(decodeCard(new URL(createCardLink(fullCard, destination)).hash), fullCard);
-  assert.throws(() => createCardLink({ ...fullCard, items: items.map(item => ({ ...item, price: 99999 })), note: '舒'.repeat(100) }, destination), /太長/);
+  const longItems = items.map(item => ({ ...item, name: item.name.repeat(4) }));
+  const longCard = { ...fullCard, items: longItems, note: '舒'.repeat(100) };
+  assert.throws(() => createCardLink(longCard, destination), /太長/);
 });
