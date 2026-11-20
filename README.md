@@ -8,7 +8,7 @@
 
 使用 Node.js 24，先執行 `npm ci`，再執行 `npm run dev`，開啟終端機顯示的 `/Nihe/` 網址。使用 `npm test` 驗證卡片格式與截止日，使用 `npm run build` 產生 `dist/`。推送至 `main` 後，GitHub Actions 會建置並發布 GitHub Pages。
 
-主護理、加購及儲值方案集中於 [src/catalog.js](src/catalog.js)，以新版 DM 為準。續約禮、營業時間、預約小叮嚀、店址及 LINE 預約方式位於 [index.html](index.html)；營業時間沿用舊版官方帳號公告並標示確認中。依店主意願不放 Instagram、Facebook 等社群連結。正式上線時可更新這兩處，並重新檢視頁面的搜尋引擎索引設定。
+主護理、加購及儲值方案集中於 [src/catalog.js](src/catalog.js)，以新版 DM 為準。續約禮、營業時間、預約小叮嚀、店址及 LINE 預約方式位於 [index.html](index.html)；營業時間不固定（店主利用業餘時間接客），網站只寫依預約安排、以 LINE 回覆為準。依店主意願不放 Instagram、Facebook 等社群連結。正式上線時可更新這兩處，並重新檢視頁面的搜尋引擎索引設定。
 
 ## 圖像素材
 

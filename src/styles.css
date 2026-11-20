@@ -305,7 +305,6 @@ nav .nav-share {
 .plan-bonus strong { color: var(--accent); }
 .plan span { color: var(--muted); font-size: .875rem; }
 .plan-note { margin-top: .7rem; color: var(--muted); font-size: .9375rem; }
-.hours-note { margin-top: .8rem; color: var(--muted); font-size: .875rem; }
 .booking-notes > p { margin-top: .45rem; color: var(--muted); font-size: .9375rem; }
 .renewal, .booking-notes { margin-top: 1.5rem; }
 .renewal h3, .booking-notes h3 { font-size: 1.2rem; }
@@ -320,9 +319,6 @@ nav .nav-share {
   align-items: start;
   padding-block: clamp(3rem, 7vw, 6rem);
 }
-.hours { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .5rem 1.25rem; margin: .5rem 0 0; }
-.hours dt { font-weight: 650; }
-.hours dd { display: flex; flex-wrap: wrap; gap: 0 .9rem; margin: 0; color: var(--muted); }
 .line-card {
   display: grid;
   justify-items: center;
