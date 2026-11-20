@@ -2,7 +2,7 @@ import './styles.css';
 import QRCode from 'qrcode';
 import { renderCard } from './card-view.js';
 import { createCardLink, decodeCard, maxPrice, shareMessage } from './cards.js';
-import { extras, money, storedValue, treatments } from './catalog.js';
+import { extras, homeUrl, money, storedValue, treatments } from './catalog.js';
 import { copyWithStatus, element } from './ui.js';
 
 const forms = {
@@ -228,6 +228,25 @@ document.querySelector('#download-card-qr').addEventListener('click', () => {
   link.download = 'Nihe-分享卡-QR.png';
   link.click();
 });
+
+const promotionUrls = {
+  line: 'https://line.me/R/ti/p/@695nodop',
+  home: homeUrl,
+};
+
+for (const button of document.querySelectorAll('[data-promotion-copy]')) {
+  const status = button.closest('.promotion-copy').querySelector('.status');
+  const message = document.getElementById(button.dataset.promotionMessage);
+  const url = promotionUrls[button.dataset.promotionCopy];
+  const clipboardText = message ? message.textContent.trim() + '\n' + url : url;
+  const confirmation = message ? '已複製文案與店卡連結。' : '已複製連結。';
+
+  button.addEventListener('click', () => {
+    status.textContent = '';
+    void copyWithStatus(clipboardText, status, confirmation);
+  });
+  button.hidden = false;
+}
 
 refreshPreview();
 document.querySelector('[data-enhanced]').hidden = false;

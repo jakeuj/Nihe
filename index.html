@@ -18,14 +18,16 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Nihe 客製化臉部養護的品牌分享封面">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="icon" href="/media/icon.png" type="image/png">
+    <link rel="icon" href="/media/nihe-icon.png" type="image/png" sizes="96x96">
     <script type="module" src="/src/home.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">跳到主要內容</a>
     <header class="site-header">
       <div class="wrap header-inner">
-        <a class="wordmark" href="%BASE_URL%" aria-label="Nihe 首頁">Nihe<span>.</span></a>
+        <a class="wordmark" href="%BASE_URL%" aria-label="Nihe 首頁">
+          <img src="/media/nihe-logo.png" alt="" width="720" height="196">
+        </a>
         <nav aria-label="主要導覽">
           <a href="#treatments">護理與加購</a>
           <a href="#booking">預約洽詢</a>
@@ -99,11 +101,24 @@
         </div>
       </section>
 
+      <section class="about-section wrap" id="about" aria-labelledby="about-title">
+        <div class="about-copy">
+          <h2 id="about-title">關於 Nihe</h2>
+          <p class="section-lede">Nihe 是位於台中東區的臉部養護工作室。店主會依照你當天的膚況與需求，和你一起挑選適合的護理。</p>
+          <p class="section-lede">第一次來，歡迎先用 LINE 聊聊你的保養需求。</p>
+          <a class="button outline" href="#booking">查看預約方式</a>
+        </div>
+        <figure class="about-portrait">
+          <img src="/media/nihe-owner.webp" alt="一位綁著低髮髻的女性背對畫面，在暖色窗光下整理毛巾" width="960" height="1200" loading="lazy">
+          <figcaption>店主肖像插畫</figcaption>
+        </figure>
+      </section>
+
       <section class="booking-section" id="booking" aria-labelledby="booking-title">
         <div class="wrap booking-inner">
           <div>
             <h2 id="booking-title">預約資訊</h2>
-            <p class="section-lede">工作室採預約制，請務必先預約，未預約時店內可能沒有人。做臉會依照當日膚況及個人需求，量身安排適合的養護內容。</p>
+            <p class="section-lede">工作室採預約制，請務必先預約，未預約時店內可能沒有人。</p>
             <div class="booking-notes">
               <h3>店址</h3>
               <p>台中市東區十甲路396號</p>
@@ -156,7 +171,9 @@
     </main>
     <footer class="site-footer">
       <div class="wrap footer-inner">
-        <a class="wordmark small" href="%BASE_URL%" aria-label="Nihe 首頁">Nihe<span>.</span></a>
+        <a class="wordmark small" href="%BASE_URL%" aria-label="Nihe 首頁">
+          <img src="/media/nihe-logo.png" alt="" width="720" height="196" loading="lazy">
+        </a>
         <p>客製化臉部養護</p>
       </div>
     </footer>
