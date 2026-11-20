@@ -107,7 +107,7 @@ for (const field of ['title', 'details', 'price', 'until']) {
 }
 for (const plan of storedValue) {
   const row = element('tr');
-  row.append(element('td', '', money(plan.amount)), element('td', '', money(plan.bonus)));
+  row.append(element('td', '', money(plan.amount)), element('td', '', money(plan.bonus)), element('td', '', plan.months + ' 個月'));
   document.querySelector('#stored-value-reference').append(row);
 }
 

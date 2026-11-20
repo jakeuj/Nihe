@@ -32,9 +32,9 @@ export const extras = [
 ];
 
 export const storedValue = [
-  { amount: 3000, bonus: 200 },
-  { amount: 5000, bonus: 500 },
-  { amount: 8000, bonus: 1000 },
+  { amount: 3000, bonus: 200, months: 3, tagline: '體驗輕鬆入門' },
+  { amount: 5000, bonus: 500, months: 6, tagline: '定期穩定保養' },
+  { amount: 8000, bonus: 1000, months: 12, tagline: '客製化長期養護' },
 ];
 
 const amountFormat = new Intl.NumberFormat('zh-TW');

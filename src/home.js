@@ -1,5 +1,5 @@
 import './styles.css';
-import { extras, homeUrl, money, sumPrices, treatments } from './catalog.js';
+import { extras, homeUrl, money, storedValue, sumPrices, treatments } from './catalog.js';
 import { copyWithStatus, element, shareOrCopy } from './ui.js';
 
 const form = document.querySelector('#care-picker');
@@ -35,6 +35,16 @@ function itemOption(item, isMain) {
   return label;
 }
 
+function planItem(plan) {
+  const row = element('li', 'plan');
+  const deposit = element('div', 'plan-deposit');
+  deposit.append(element('strong', '', '儲值 ' + money(plan.amount)), element('span', '', '使用期限 ' + plan.months + ' 個月'));
+  const bonus = element('div', 'plan-bonus');
+  bonus.append(element('strong', '', '贈送 ' + money(plan.bonus)), element('span', '', plan.tagline));
+  row.append(deposit, bonus);
+  return row;
+}
+
 function selectedItems() {
   const data = new FormData(form);
   const treatment = treatments.find(item => item.id === data.get('treatment'));
@@ -65,6 +75,7 @@ function renderSelection() {
 
 document.querySelector('#treatment-options').append(...treatments.map(item => itemOption(item, true)));
 document.querySelector('#extra-options').append(...extras.map(item => itemOption(item, false)));
+document.querySelector('#stored-plans').append(...storedValue.map(planItem));
 form.addEventListener('change', renderSelection);
 form.addEventListener('submit', event => event.preventDefault());
 copyButton.addEventListener('click', () => {
