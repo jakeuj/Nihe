@@ -40,7 +40,7 @@ function planItem(plan) {
   const deposit = element('div', 'plan-deposit');
   deposit.append(element('strong', '', '儲值 ' + money(plan.amount)), element('span', '', '使用期限 ' + plan.months + ' 個月'));
   const bonus = element('div', 'plan-bonus');
-  bonus.append(element('strong', '', '贈送 ' + money(plan.bonus)), element('span', '', plan.tagline));
+  bonus.append(element('strong', '', '贈送 ' + money(plan.bonus)));
   row.append(deposit, bonus);
   return row;
 }
@@ -84,7 +84,7 @@ copyButton.addEventListener('click', () => {
 
   const details = items.map(item => item.name + '　' + money(item.price));
   const text = ['Nihe｜我的護理搭配', ...details, '搭配金額　' + money(sumPrices(items)), homeUrl].join('\n');
-  void copyWithStatus(text, selectionStatus, '已複製搭配摘要。');
+  void copyWithStatus(text, selectionStatus, '已複製，可以貼到 LINE 跟 Nihe 聊聊這套搭配。');
 });
 shareButton.addEventListener('click', () => {
   void shareOrCopy({ title: 'Nihe｜客製化臉部養護', url: homeUrl }, document.querySelector('#share-status'));

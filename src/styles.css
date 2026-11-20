@@ -337,7 +337,7 @@ nav .nav-share {
   background: var(--sand);
 }
 .about-portrait-featured img { border-radius: .85rem; }
-.about-portrait figcaption { margin-top: .5rem; color: var(--muted); font-size: .875rem; text-align: center; }
+.about-portrait figcaption { margin-top: .5rem; color: var(--muted); font-size: .875rem; text-align: center; text-wrap: balance; }
 
 .booking-section { background: var(--paper); border-block-start: 1px solid #eadbca; }
 .booking-inner {
