@@ -8,7 +8,7 @@
 
 使用 Node.js 24，先執行 `npm ci`，再執行 `npm run dev`，開啟終端機顯示的 `/Nihe/` 網址。使用 `npm test` 驗證卡片格式與截止日，使用 `npm run build` 產生 `dist/`。推送至 `main` 後，GitHub Actions 會建置並發布 GitHub Pages。
 
-主護理、加購及店主端的 DM 儲值金額集中於 [src/catalog.js](src/catalog.js)。展示版預約與儲值洽詢文案位於 [index.html](index.html)。正式上線時可更新這兩處，並重新檢視頁面的搜尋引擎索引設定。
+主護理、加購及店主端的 DM 儲值金額集中於 [src/catalog.js](src/catalog.js)。預約與儲值洽詢（LINE QR Code）文案位於 [index.html](index.html)。正式上線時可更新這兩處，並重新檢視頁面的搜尋引擎索引設定。
 
 ## 圖像素材
 

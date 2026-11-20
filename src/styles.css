@@ -299,6 +299,18 @@ nav .nav-share {
   color: var(--muted);
   font-size: .9375rem;
 }
+.demo-note a { color: var(--brown); text-decoration: underline; text-underline-offset: .2em; }
+.line-contact { display: flex; align-items: center; gap: 1.1rem; margin-top: 1.25rem; }
+.line-contact .line-note { margin: 0 0 .9rem; }
+.line-qr {
+  flex: none;
+  display: block;
+  border: 1px solid #d6bea6;
+  border-radius: .85rem;
+  background: white;
+  padding: .35rem;
+}
+.line-qr img { display: block; width: min(34vw, 8.5rem); height: auto; }
 .share-section { border-block: 1px solid #eadbc9; background: #efdecc; }
 .share-inner {
   display: grid;

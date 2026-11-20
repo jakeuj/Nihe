@@ -19,6 +19,7 @@ export const treatments = [
     id: 'balance',
     name: '透皙煥采淨膚',
     description: '溫和更新，維持油水平衡',
+    minutes: 90,
     price: 1500,
   },
 ];
