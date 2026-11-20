@@ -12,7 +12,7 @@
 
 ## 圖像素材
 
-首頁養護照和儲值情境照由 Codex 內建 ImageGen 生成，使用原 DM 的色調與植物意象作為參考。[Nihe 標誌](public/media/nihe-logo.png)、[店主肖像素描](public/media/nihe-owner-sketch.webp)與[養護準備插畫](public/media/nihe-owner.webp)同樣由內建 ImageGen 製作。[分頁圖示](public/media/nihe-icon.png)取自標誌的葉片。
+首頁養護照和儲值情境照由 Codex 內建 ImageGen 生成，使用原 DM 的色調與植物意象作為參考。[Nihe 標誌](public/media/nihe-logo.png)、[店主彩鉛插畫](public/media/nihe-owner-illustration.webp)與[養護準備插畫](public/media/nihe-owner.webp)同樣由內建 ImageGen 製作。[分頁圖示](public/media/nihe-icon.png)取自標誌的葉片。
 
 <details>
 <summary>首頁養護照與情境照提示詞</summary>
@@ -44,15 +44,15 @@ Scene/backdrop: quiet light-filled facial-care studio with cream limewash, a sof
 Style/medium: tactile fine-grained gouache and soft colored-pencil shading on lightly textured matte paper, polished editorial skincare illustration with slightly simplified forms. Muted honey, warm sand, ivory, cocoa and subtle dusty terracotta. Subtle natural light, credible hand anatomy, minimal composition. Vertical 4:5 frame, medium torso portrait at an angle with figure and folded towel comfortably inside the middle of the frame. Composition should also survive a center-square crop. No legible face, eye contact, medical coat, brand, text, watermark, extra people, glamorous posing or clinical props.
 ```
 
-**店主肖像素描**
+**店主彩鉛插畫**
 
 ```text
 Use case: style-transfer.
-Asset type: lightly colored pencil portrait for the “關於 Nihe” section of a Taiwanese facial-care studio website.
-Input images: Image 1, the small crop with the peace sign, is the main composition and expression reference. Image 2, the salon portrait in the white coat, is the portrait to reinterpret and provides the warm studio atmosphere. Image 3, the retro portrait, is a secondary reference only for soft amber light, delicate fringe and dark hair.
-Primary request: make a clearly hand-drawn, gently idealized but natural close-up of an adult East Asian woman, with a slight angle to her shoulders, face turned toward the viewer, relaxed eye contact, wispy side-swept bangs, and an understated closed-mouth smile. Include an anatomically credible relaxed V-sign beside one cheek like Image 1, with the wrist and elbow implied below the crop. Draw an original face that evokes the overall vibe while changing facial proportions and distinctive features from the references. Use natural adult-sized almond-shaped eyes, a softly rounded face, and loosely drawn nose and mouth contours. Keep it warm, casually confident and approachable. Dress her in an oat-colored linen salon tunic, with a modest neckline.
-Style and palette: an elegant graphite drawing with visible, delicate pencil lines and fine hatching, soft colored pencil on warm cream paper, with only light muted peach on the cheeks, warm cocoa-brown shadows and natural ink-black hair. A subtle drawn wash of ivory and honey window light in the background gives the suggestion of a serene facial-care studio. Use actual pencil grain and soft edges, with airy shadows and restrained detail. A tactile artist’s sketch that still feels polished as a brand asset.
-Composition: vertical 4:5 frame, close head-and-shoulders, one person. Keep the entire visible face and V shape safely inside a centered arch crop with a little headroom. Calm uncomplicated background, no collage, no photo finish, no heavy charcoal, no anime eyes, no medical coat, no jewelry, no retro signs, no letters, no border, no watermark.
+Asset type: warm editorial colored-pencil avatar for the “嗨，我是 Nihe” section of a Taiwanese facial-care studio website.
+Input image: the current website picture is the edit target. Refer to it for the cream-and-honey color palette, oat linen top, shoulder-up framing, quiet skincare studio, friendly smile and relaxed V-sign. Use NONE of its face anatomy, facial proportions or exact hairstyle.
+Primary request: re-illustrate the image as a noticeably more stylized and less identifiable fictional adult East Asian woman. This should look like a polished independent illustrator’s colored-pencil and matte gouache character portrait with lightly visible sketch lines and paper grain. Draw a new softly rounded face from a gentle three-quarter angle, with both eyes comfortably closed in a natural smiling expression. Draw each eye as one small soft pencil arc, nose as a single loose short mark, and the closed-mouth smile as one soft curve with a muted peach wash. Redraw the dark hair as a loose shoulder-length shape with a swept side part and broad pencil strokes. Keep the hand next to the face in an accurate, relaxed two-finger peace sign and keep her oat linen neckline modest.
+Style: flat, blended colored-pencil shading with simple matte shape silhouettes and soft value shifts, honey window light, cocoa brown, ivory paper, softly muted peach. Maintain a calm adult boutique beauty editorial quality. The face must be abstract enough that it cannot resemble a photo or realistically traced portrait; no visible irises, realistic highlights, eyelashes, detailed lip anatomy, sharp nose contours, individual hair strands or plastic skin. Avoid blur as the method.
+Composition: centered vertical 4:5 shoulder-up portrait, balanced headroom and both fingertips comfortably in frame, small suggestion of folded towels or window light in the background. Light cream edges, no border, no text, no logos or watermarks.
 ```
 
 </details>
