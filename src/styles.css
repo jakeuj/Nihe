@@ -302,6 +302,7 @@ nav .nav-share {
 .demo-note a { color: var(--brown); text-decoration: underline; text-underline-offset: .2em; }
 .line-contact { display: flex; align-items: center; gap: 1.1rem; margin-top: 1.25rem; }
 .line-contact .line-note { margin: 0 0 .9rem; }
+.line-id { color: var(--brown); white-space: nowrap; }
 .line-qr {
   flex: none;
   display: block;
