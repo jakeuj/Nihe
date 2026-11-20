@@ -12,7 +12,7 @@
 
 ## 圖像素材
 
-首頁養護照和儲值情境照由 Codex 內建 ImageGen 生成，使用原 DM 的色調與植物意象作為參考。[Nihe 標誌](public/media/nihe-logo.png)與[店主肖像插畫](public/media/nihe-owner.webp)同樣由內建 ImageGen 製作。[分頁圖示](public/media/nihe-icon.png)取自標誌的葉片。
+首頁養護照和儲值情境照由 Codex 內建 ImageGen 生成，使用原 DM 的色調與植物意象作為參考。[Nihe 標誌](public/media/nihe-logo.png)、[店主肖像素描](public/media/nihe-owner-sketch.webp)與[養護準備插畫](public/media/nihe-owner.webp)同樣由內建 ImageGen 製作。[分頁圖示](public/media/nihe-icon.png)取自標誌的葉片。
 
 <details>
 <summary>首頁養護照與情境照提示詞</summary>
@@ -42,6 +42,17 @@ Input images: Image 1 is the portrait to transform, used for broad cues of dark 
 Primary request: transform the salon portrait into an understated semi-realistic painted illustration of an adult East Asian female facial-care studio owner calmly arranging a folded cream towel. Protect likeness through a naturally averted pose viewed from the rear at three-quarter angle. Include just an indistinct sliver of cheek contour, with her nose, both eyes and mouth entirely hidden by head angle and slightly loosened dark hair. Use general hair and posture cues only, with no distinctive facial details, jewelry or other identifying features. Her hair is tied in a loose low bun. Dress her in a professional oat-colored, lightly textured wrap tunic. Warm, calm, welcoming and attentive.
 Scene/backdrop: quiet light-filled facial-care studio with cream limewash, a soft diagonal honey-toned window shadow, folded cream linen and a small ceramic bowl. The cover frame should feel intimate and authentic without appearing like a depiction of a specific real location.
 Style/medium: tactile fine-grained gouache and soft colored-pencil shading on lightly textured matte paper, polished editorial skincare illustration with slightly simplified forms. Muted honey, warm sand, ivory, cocoa and subtle dusty terracotta. Subtle natural light, credible hand anatomy, minimal composition. Vertical 4:5 frame, medium torso portrait at an angle with figure and folded towel comfortably inside the middle of the frame. Composition should also survive a center-square crop. No legible face, eye contact, medical coat, brand, text, watermark, extra people, glamorous posing or clinical props.
+```
+
+**店主肖像素描**
+
+```text
+Use case: style-transfer.
+Asset type: lightly colored pencil portrait for the “關於 Nihe” section of a Taiwanese facial-care studio website.
+Input images: Image 1, the small crop with the peace sign, is the main composition and expression reference. Image 2, the salon portrait in the white coat, is the portrait to reinterpret and provides the warm studio atmosphere. Image 3, the retro portrait, is a secondary reference only for soft amber light, delicate fringe and dark hair.
+Primary request: make a clearly hand-drawn, gently idealized but natural close-up of an adult East Asian woman, with a slight angle to her shoulders, face turned toward the viewer, relaxed eye contact, wispy side-swept bangs, and an understated closed-mouth smile. Include an anatomically credible relaxed V-sign beside one cheek like Image 1, with the wrist and elbow implied below the crop. Draw an original face that evokes the overall vibe while changing facial proportions and distinctive features from the references. Use natural adult-sized almond-shaped eyes, a softly rounded face, and loosely drawn nose and mouth contours. Keep it warm, casually confident and approachable. Dress her in an oat-colored linen salon tunic, with a modest neckline.
+Style and palette: an elegant graphite drawing with visible, delicate pencil lines and fine hatching, soft colored pencil on warm cream paper, with only light muted peach on the cheeks, warm cocoa-brown shadows and natural ink-black hair. A subtle drawn wash of ivory and honey window light in the background gives the suggestion of a serene facial-care studio. Use actual pencil grain and soft edges, with airy shadows and restrained detail. A tactile artist’s sketch that still feels polished as a brand asset.
+Composition: vertical 4:5 frame, close head-and-shoulders, one person. Keep the entire visible face and V shape safely inside a centered arch crop with a little headroom. Calm uncomplicated background, no collage, no photo finish, no heavy charcoal, no anime eyes, no medical coat, no jewelry, no retro signs, no letters, no border, no watermark.
 ```
 
 </details>

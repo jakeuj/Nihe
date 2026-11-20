@@ -312,22 +312,31 @@ nav .nav-share {
 
 .about-section {
   display: grid;
-  grid-template-columns: minmax(0, 1.18fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
   align-items: center;
-  gap: clamp(1.5rem, 6vw, 5rem);
-  max-width: 61rem;
+  gap: clamp(1.5rem, 5vw, 4.5rem);
+  max-width: 68rem;
   padding-block: clamp(2.75rem, 6vw, 5.25rem);
   border-block-start: 1px solid var(--line);
 }
 .about-copy .section-lede { max-width: 28rem; margin-top: .8rem; line-height: 1.85; }
 .about-copy .button { margin-top: 1.25rem; }
-.about-portrait { width: min(100%, 23rem); justify-self: center; }
+.about-portraits {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+  align-items: end;
+  gap: clamp(.65rem, 1.75vw, 1.25rem);
+  width: min(100%, 35rem);
+  justify-self: center;
+}
+.about-portrait + .about-portrait { margin-block-end: clamp(.75rem, 2.25vw, 2rem); }
 .about-portrait img {
   width: 100%;
   height: auto;
   border-radius: 48% 48% .85rem .85rem / 25% 25% .85rem .85rem;
   background: var(--sand);
 }
+.about-portrait-featured img { border-radius: .85rem; }
 .about-portrait figcaption { margin-top: .5rem; color: var(--muted); font-size: .875rem; text-align: center; }
 
 .booking-section { background: var(--paper); border-block-start: 1px solid #eadbca; }
