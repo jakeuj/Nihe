@@ -440,6 +440,16 @@ input[type="checkbox"] { accent-color: var(--brown); width: 1.1rem; height: 1.1r
 .reference-panel table { width: 100%; border-collapse: collapse; margin-block-start: .75rem; }
 .reference-panel td, .reference-panel th { border-bottom: 1px solid var(--line); text-align: left; padding: .3rem; }
 
+.draft-backup { margin-block: 0 1.25rem; }
+.draft-backup-body { max-width: 43rem; margin-top: .7rem; }
+.draft-backup-body > p:first-child { color: var(--muted); margin-bottom: .75rem; }
+#draft-import { display: grid; gap: .45rem; margin-top: 1rem; }
+#draft-import > .button { justify-self: start; }
+#backup-confirm { margin-top: .4rem; }
+#backup-confirm legend { font-weight: 650; }
+.backup-choices { display: flex; flex-wrap: wrap; gap: .25rem 1.35rem; }
+#backup-overwrite { margin-block: .3rem .75rem; }
+
 .promotion-section {
   margin-top: clamp(2.5rem, 6vw, 4.5rem);
   padding-top: clamp(1.75rem, 4vw, 2.75rem);

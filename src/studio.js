@@ -3,6 +3,8 @@ import QRCode from 'qrcode';
 import { renderCard } from './card-view.js';
 import { createCardLink, decodeCard, maxPrice, shareMessage } from './cards.js';
 import { extras, homeUrl, money, storedValue, treatments } from './catalog.js';
+import { setupDraftBackup } from './draft-backup.js';
+import { readDrafts, saveDrafts } from './drafts.js';
 import { copyWithStatus, element } from './ui.js';
 
 const forms = {
@@ -20,55 +22,42 @@ const shareResults = document.querySelector('#share-results');
 const openCard = document.querySelector('#open-card');
 const modeButtons = [...document.querySelectorAll('[data-mode]')];
 const destination = new URL(import.meta.env.BASE_URL + 'card/', location.origin);
-const storagePrefix = 'nihe:studio:v1:';
 
 let mode = 'care';
 let shareVersion = 0;
 let shared;
 
 function reportStorageUnavailable() {
-  draftStatus.textContent = '此瀏覽器目前無法保存草稿。仍可產生分享卡，離開頁面前請複製連結。';
-}
-
-function loadDraft(type) {
-  let raw;
-  try {
-    raw = localStorage.getItem(storagePrefix + type);
-  } catch {
-    reportStorageUnavailable();
-  }
-  try {
-    const draft = JSON.parse(raw);
-    return draft && typeof draft === 'object' ? draft : {};
-  } catch {
-    return {};
-  }
+  draftStatus.textContent = '此瀏覽器目前無法保存草稿。離開前可用「草稿備份」複製備份連結。';
 }
 
 function savedInput(value, fallback = '') {
   return typeof value === 'string' ? value : fallback;
 }
 
-function saveDraft(type) {
+function readDraftForm(type) {
   const values = Object.fromEntries(new FormData(forms[type]));
   if (type === 'care') {
     values.extras = Object.fromEntries(extraFields.map(({ item, input, price }) => [
       item.id, { checked: input.checked, price: price.value },
     ]));
   }
+  return values;
+}
+
+function saveDraft(type) {
   try {
-    localStorage.setItem(storagePrefix + type, JSON.stringify(values));
+    saveDrafts(localStorage, { [type]: readDraftForm(type) });
   } catch {
     reportStorageUnavailable();
   }
 }
 
-function extraRow(item, draft) {
+function extraRow(item) {
   const row = element('div', 'editor-extra');
   const label = element('label', 'check-label');
   const input = element('input');
   input.type = 'checkbox';
-  input.checked = draft?.checked === true;
   label.append(input, element('span', '', item.name));
 
   const priceLabel = element('label', 'extra-price-label');
@@ -79,31 +68,47 @@ function extraRow(item, draft) {
   price.max = String(maxPrice);
   price.step = '1';
   price.required = true;
-  price.disabled = !input.checked;
-  price.value = savedInput(draft?.price, String(item.price));
   price.setAttribute('aria-label', item.name + '價格（NT$）');
   priceLabel.append(element('span', '', 'NT$'), price);
   row.append(label, priceLabel);
   return { item, row, input, price };
 }
 
-const careDraft = loadDraft('care');
-const promoDraft = loadDraft('promo');
-
 for (const item of treatments) {
   const option = element('option', '', item.name);
   option.value = item.id;
   treatmentSelect.append(option);
 }
-const initialTreatment = treatments.find(item => item.id === careDraft.treatment) ?? treatments[0];
-treatmentSelect.value = initialTreatment.id;
-careFields.namedItem('price').value = savedInput(careDraft.price, String(initialTreatment.price));
-careFields.namedItem('note').value = savedInput(careDraft.note);
-
-const extraFields = extras.map(item => extraRow(item, careDraft.extras?.[item.id]));
+const extraFields = extras.map(extraRow);
 document.querySelector('#editor-extras').append(...extraFields.map(field => field.row));
-for (const field of ['title', 'details', 'price', 'until']) {
-  promoFields.namedItem(field).value = savedInput(promoDraft[field]);
+
+function applyDraft(type, draft) {
+  if (type === 'care') {
+    const treatment = treatments.find(item => item.id === draft.treatment) ?? treatments[0];
+    treatmentSelect.value = treatment.id;
+    careFields.namedItem('price').value = savedInput(draft.price, String(treatment.price));
+    careFields.namedItem('note').value = savedInput(draft.note);
+    for (const { item, input, price } of extraFields) {
+      const addon = draft.extras?.[item.id];
+      input.checked = addon?.checked === true;
+      price.disabled = !input.checked;
+      price.value = savedInput(addon?.price, String(item.price));
+    }
+    return;
+  }
+  for (const field of ['title', 'details', 'price', 'until']) {
+    promoFields.namedItem(field).value = savedInput(draft[field]);
+  }
+}
+
+let savedDrafts = { care: {}, promo: {} };
+try {
+  savedDrafts = readDrafts(localStorage);
+} catch {
+  reportStorageUnavailable();
+}
+for (const type of Object.keys(forms)) {
+  applyDraft(type, savedDrafts[type]);
 }
 for (const plan of storedValue) {
   const row = element('tr');
@@ -203,15 +208,18 @@ for (const [type, form] of Object.entries(forms)) {
   });
 }
 
+function selectMode(type) {
+  mode = type;
+  for (const candidate of modeButtons) {
+    candidate.setAttribute('aria-pressed', String(candidate.dataset.mode === mode));
+  }
+  for (const [key, form] of Object.entries(forms)) form.hidden = key !== mode;
+  refreshPreview();
+}
+
 for (const button of modeButtons) {
   button.addEventListener('click', () => {
-    if (mode === button.dataset.mode) return;
-    mode = button.dataset.mode;
-    for (const candidate of modeButtons) {
-      candidate.setAttribute('aria-pressed', String(candidate.dataset.mode === mode));
-    }
-    for (const [type, form] of Object.entries(forms)) form.hidden = type !== mode;
-    refreshPreview();
+    if (mode !== button.dataset.mode) selectMode(button.dataset.mode);
   });
 }
 
@@ -250,3 +258,19 @@ for (const button of document.querySelectorAll('[data-promotion-copy]')) {
 
 refreshPreview();
 document.querySelector('[data-enhanced]').hidden = false;
+
+setupDraftBackup({
+  destination: new URL(import.meta.env.BASE_URL + 'studio/', location.origin),
+  getDrafts: () => ({ care: readDraftForm('care'), promo: readDraftForm('promo') }),
+  restoreDrafts(updates) {
+    try {
+      saveDrafts(localStorage, updates);
+    } catch {
+      reportStorageUnavailable();
+      throw new Error('此瀏覽器目前無法保存草稿。請保留備份連結，稍後再試。');
+    }
+    const types = Object.keys(updates);
+    for (const type of types) applyDraft(type, updates[type]);
+    selectMode(types.includes(mode) ? mode : types[0]);
+  },
+});

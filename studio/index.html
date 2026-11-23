@@ -31,6 +31,32 @@
       </div>
       <noscript><p>請啟用 JavaScript 使用卡片編輯與分享功能。</p></noscript>
       <div data-enhanced hidden>
+        <details class="reference-panel draft-backup" id="draft-backup">
+          <summary>草稿備份</summary>
+          <div class="draft-backup-body">
+            <p>備份連結含兩種草稿，請留作個人備份。換手機後，請用平常編輯草稿的瀏覽器開啟連結。</p>
+            <button type="button" class="button outline" id="export-drafts">匯出草稿連結</button>
+            <p id="backup-copy-status" class="status" role="status"></p>
+            <form id="draft-import">
+              <label for="backup-url">貼上備份連結</label>
+              <input id="backup-url" type="text" inputmode="url" autocomplete="off" spellcheck="false" required>
+              <button type="submit" class="button outline">讀取備份連結</button>
+              <fieldset id="backup-confirm" hidden>
+                <legend>選擇要匯入的草稿</legend>
+                <div class="backup-choices">
+                  <label class="check-label"><input type="checkbox" name="draft-type" value="care">護理推薦卡</label>
+                  <label class="check-label"><input type="checkbox" name="draft-type" value="promo">活動卡</label>
+                </div>
+                <p class="line-note" id="backup-overwrite" aria-live="polite"></p>
+                <div class="button-row">
+                  <button type="button" class="button primary" id="confirm-backup">確定匯入</button>
+                  <button type="button" class="button outline" id="cancel-backup">取消匯入</button>
+                </div>
+              </fieldset>
+            </form>
+            <p id="backup-import-status" class="status" role="status"></p>
+          </div>
+        </details>
         <div class="mode-switch" role="group" aria-label="卡片類型">
           <button type="button" class="button outline" data-mode="care" aria-pressed="true" aria-controls="care-form">護理推薦卡</button>
           <button type="button" class="button outline" data-mode="promo" aria-pressed="false" aria-controls="promo-form">活動卡</button>

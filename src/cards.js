@@ -1,4 +1,5 @@
 import { money, sumPrices } from './catalog.js';
+import { decodeJsonToken, encodeJsonToken } from './url-token.js';
 
 export const maxPrice = 99999;
 export const maxShareUrlBytes = 750;
@@ -23,7 +24,7 @@ function readText(value, length, required = false) {
   return text;
 }
 
-function validDate(value) {
+export function validDate(value) {
   if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
 
   const date = new Date(value + 'T00:00:00Z');
@@ -60,24 +61,17 @@ function normalizeCard(value) {
   throw new Error('無法辨識分享卡類型。');
 }
 
-function encodeToken(card) {
-  const bytes = new TextEncoder().encode(JSON.stringify(normalizeCard(card)));
-  return btoa(String.fromCharCode(...bytes)).replaceAll('+', '-').replaceAll('/', '_').replace(/=+$/, '');
-}
-
 export function decodeCard(hash) {
   const token = hash.startsWith('#') ? hash.slice(1) : hash;
   if (token.length < 1 || token.length > maxTokenLength || !/^[A-Za-z0-9_-]+$/.test(token)) {
     throw new Error('分享卡連結不完整或格式錯誤。');
   }
-  const raw = atob(token.replaceAll('-', '+').replaceAll('_', '/'));
-  const bytes = Uint8Array.from(raw, character => character.charCodeAt(0));
-  return normalizeCard(JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes)));
+  return normalizeCard(decodeJsonToken(token));
 }
 
 export function createCardLink(card, destination) {
   const url = new URL(destination);
-  url.hash = encodeToken(card);
+  url.hash = encodeJsonToken(normalizeCard(card));
   if (new TextEncoder().encode(url.href).length > maxShareUrlBytes) {
     throw new Error('卡片連結太長。請縮短說明或推薦語，再產生 QR Code。');
   }
